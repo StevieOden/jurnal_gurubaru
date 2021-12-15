@@ -65,6 +65,11 @@ class AuthController extends Controller
 
         return response($response, 201);
     }
+
+    public function setPasswordAttribute($password)
+    {
+    $this->attributes['password'] = bcrypt($password);
+    }
     /**
      * Display the specified resource.
      *

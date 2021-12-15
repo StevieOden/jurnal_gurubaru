@@ -8,9 +8,13 @@ use Validator;
 use App\Models\Jurnal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
 class JurnalsController extends Controller
 {
+
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation { show as traitShow; }
     /**
      * Display a listing of the resource.
      *
@@ -87,7 +91,10 @@ class JurnalsController extends Controller
      */
     public function show($id)
     {
-        //
+        // custom logic before
+        $content = $this->traitShow($id);
+        // cutom logic after
+        return $content;
     }
 
     /**
@@ -111,6 +118,11 @@ class JurnalsController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    protected function setupShowOperation()
+    {
+        $this->crud->set('show.setFromDb', true);
     }
 
     /**
