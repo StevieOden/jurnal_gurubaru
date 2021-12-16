@@ -64,7 +64,7 @@ class JurnalsController extends Controller
          );
          $dt = date('l, d M Y');
 
-         $jurnals = Jurnal::create([
+         $jurnals = Jurnals::create([
             'title'=> basename($image_uploaded_path),
             'path' => $image_uploaded_path,
             'tanggal'=> $dt,
