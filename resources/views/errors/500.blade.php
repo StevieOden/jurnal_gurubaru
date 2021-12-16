@@ -1,16 +1,16 @@
 @extends('errors.layout')
 
 @php
-	$error_number = 500;
+  $error_number = 404;
 @endphp
 
 @section('title')
-	It's not you, it's me.
+  Page not found.
 @endsection
 
 @section('description')
-	@php
-	  $default_error_message = "An internal server error has occurred. If the error persists please contact the development team.";
-	@endphp
-	{!! isset($exception)? ($exception->getMessage()?$exception->getMessage():$default_error_message): $default_error_message !!}
+  @php
+    $default_error_message = "Please <a href='javascript:history.back()''>go back</a> or return to <a href='".url('')."'>our homepage</a>.";
+  @endphp
+  {!! isset($exception)? ($exception->getMessage()?$exception->getMessage():$default_error_message): $default_error_message !!}
 @endsection
