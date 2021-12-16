@@ -38,12 +38,6 @@ class AuthController extends Controller
      */
     public function store(Request $request)
     {
-        Auth::routes([
-            'register' => false, // Registration Routes...
-            'reset' => false, // Password Reset Routes...
-            'verify' => false, // Email Verification Routes...
-        ]);
-
         $fields = $request->validate([
             'name' => 'required|string',
             'password' => 'required|string'
