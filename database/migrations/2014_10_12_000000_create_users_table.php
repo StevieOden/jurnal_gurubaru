@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('email');
+            $table->string('git commit --allow-empty -m "Purge cache"');
             $table->string('name');
             $table->string('password');
             $table->rememberToken();
