@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Storage;
 use DateTime;
 use Validator;
-use App\Models\Jurnal;
+use App\Models\Jurnals;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
