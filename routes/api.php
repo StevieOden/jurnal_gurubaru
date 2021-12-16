@@ -18,6 +18,8 @@ use App\Http\Controllers\JurnalsController;
 |
 */
 
+Auth::routes(['register' => false]);
+
 Route::post('/login', [AuthController::class, 'store']);
 Route::group(['middleware' => ['auth:sanctum']], function(){
 Route::post('/jurnal', [JurnalsController::class, 'store']);
