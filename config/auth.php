@@ -1,5 +1,5 @@
 <?php
-
+Auth::routes(['register' => false]);
 return [
 
     /*
