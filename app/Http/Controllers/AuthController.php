@@ -45,9 +45,8 @@ class AuthController extends Controller
 
         //check name
         $user = User::where('name', $fields['name'])->first();
-        $password = User::where('password', $fields['password'])->first();
 
-        if($user && $password){
+        if($user && Hash::check($fields['password'], $user->password)){
             $token = $user->createToken('token')-> plainTextToken;
             $response = [
                 'user' => $user,

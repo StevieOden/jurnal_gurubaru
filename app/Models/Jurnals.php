@@ -13,8 +13,13 @@ class Jurnals extends Model
         'title',
         'path',
         'tanggal',
-        'kegiatan'
+        'kegiatan',
+        'user_id'
     ];
+
+    public function user(){
+        return $this->BelongsTo(User::class);
+    }
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
