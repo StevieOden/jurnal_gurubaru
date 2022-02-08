@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\User;
 use App\Http\Requests\JurnalsRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
@@ -55,6 +56,15 @@ class JurnalsCrudController extends CrudController
         CRUD::column('path')->label('image');
         CRUD::column('tanggal');
         CRUD::column('kegiatan')->type('text');
+        $this->crud->addFilter([
+            'name'  => 'user_id',
+            'type'  => 'select2',
+            'label' => 'User'
+          ], function () {
+            return User::all()->keyBy('id')->pluck('name', 'id')->toArray();
+          }, function ($value) { // if the filter is active
+            $this->crud->addClause('where', 'user_id', $value);
+          });
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
