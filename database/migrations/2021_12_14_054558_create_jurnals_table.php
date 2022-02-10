@@ -21,6 +21,7 @@ class CreateJurnalsTable extends Migration
             $table->string('path');
             $table->string('tanggal');
             $table->string('kegiatan');
+            $table->string('judul');
         });
     }
 

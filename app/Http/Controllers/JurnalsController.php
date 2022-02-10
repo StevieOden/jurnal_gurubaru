@@ -50,7 +50,8 @@ class JurnalsController extends Controller
         //  ]);
         $fields = $request->validate([
             'image' => 'required|image:jpeg,png,jpg,gif,svg',
-            'kegiatan' =>'required|string'
+            'kegiatan' =>'required|string',
+            'judul' =>'required|string'
          ]);
         //  if ($fields->fails()) {
         //     return 'error';
@@ -71,6 +72,7 @@ class JurnalsController extends Controller
             'path' => $environment."/storage/".$image_uploaded_path,
             'tanggal'=> $dt,
             'kegiatan' => $fields['kegiatan'],
+            'judul' => $fields['judul'],
         ]);
 
          return response([
@@ -82,6 +84,7 @@ class JurnalsController extends Controller
             'path' => $environment."/storage/".$image_uploaded_path,
             ],
             'kegiatan' => $fields['kegiatan'],
+            'judul' => $fields['judul'],
         ]);
 
     }

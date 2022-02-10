@@ -14,6 +14,7 @@ class Jurnals extends Model
         'path',
         'tanggal',
         'kegiatan',
+        'judul',
         'user_id'
     ];
 

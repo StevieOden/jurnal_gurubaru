@@ -40,12 +40,12 @@ class JurnalsCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('id');
+        CRUD::column('id')->label('No');
         CRUD::addColumn([  
             // any type of relationship
             'name'         => 'user', // name of relationship method in the model
             'type'         => 'relationship',
-            'label'        => 'user', // Table column heading
+            'label'        => 'Nama', // Table column heading
             // OPTIONAL
             // 'entity'    => 'tags', // the method that defines the relationship in your Model
             // 'attribute' => 'name', // foreign key attribute that is shown to user
@@ -53,9 +53,7 @@ class JurnalsCrudController extends CrudController
          ]);
         // CRUD::column('created_at');
         // CRUD::column('updated_at'); 
-        CRUD::column('path')->label('image');
         CRUD::column('tanggal');
-        CRUD::column('kegiatan')->type('text');
         $this->crud->addFilter([
             'name'  => 'user_id',
             'type'  => 'select2',
